@@ -18,5 +18,5 @@ import { SeparadorComponent } from './components/separador/separador.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'indexa';
+  alfabeto: string = 'abcdefghijklmnopqrstuvwxyz'
 }
