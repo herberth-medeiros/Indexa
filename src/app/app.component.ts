@@ -6,6 +6,15 @@ import { CabecalhoComponent } from './components/cabecalho/cabecalho.component';
 import { SeparadorComponent } from './components/separador/separador.component';
 import { ContatoComponent } from './components/contato/contato.component';
 
+
+interface Contato {
+  id: number
+  nome: string
+  telefone: string 
+}
+
+import agenda from './agenda.json'
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,4 +30,11 @@ import { ContatoComponent } from './components/contato/contato.component';
 })
 export class AppComponent {
   alfabeto: string = 'abcdefghijklmnopqrstuvwxyz'
+  contatos: Contato[] = agenda
+
+  filtrarContratosPorLetraInicial(letra: string) : Contato[] {
+    return this.contatos.filter( contatos => {
+      return contatos.nome.toLowerCase().startsWith(letra)
+    })
+  }
 }
