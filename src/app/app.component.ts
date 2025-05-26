@@ -32,7 +32,7 @@ export class AppComponent {
   alfabeto: string = 'abcdefghijklmnopqrstuvwxyz'
   contatos: Contato[] = agenda
 
-  filtrarContratosPorLetraInicial(letra: string) : Contato[] {
+  filtrarContatosPorLetraInicial(letra: string) : Contato[] {
     return this.contatos.filter( contatos => {
       return contatos.nome.toLowerCase().startsWith(letra)
     })
