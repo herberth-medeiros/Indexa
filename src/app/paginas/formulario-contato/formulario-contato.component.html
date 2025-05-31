@@ -9,30 +9,27 @@
     </section>
 </header>
 
-<form>
+<form [formGroup]="contatoForm">
     <label for="nome">Nome</label>
     <input
         type="text"
         id="nome"
         placeholder="Digite o nome do contato"
+        formControlName="nome"
         />
-        <label for="Telefone">Telefone</label>
+    <label for="Telefone">Telefone</label>
     <input
         type="text"
         id="telefone"
         placeholder="Digite o telefone do contato"
+        formControlName="telefone"
         />
     <label for="email">Email</label>
     <input
         type="email"
         id="email"
         placeholder="Digite o email do contato"
-        />
-    <label for="email">Email</label>
-    <input
-        type="text"
-        id="nome"
-        placeholder="Digite o nome do contato"
+        formControlName="email"
         />
 
     <app-separador></app-separador>
@@ -42,6 +39,7 @@
         type="date"
         id="aniversario"
         placeholder="Digite a data de nascimento"
+        formControlName="aniversario"
     />
     <label for="redes">Redes Sociais</label>
     <div class="input-container">
@@ -50,14 +48,16 @@
         type="url"
         id="redes"
         placeholder="Adicione a URL da pagina"
+        formControlName="redes"
         />
 
     </div>
-
+    <label class="redes">Observacoes</label>
     <textarea
         type="text"
         id="nome"
-        placeholder="Digite as observacoes">
+        placeholder="Digite as observacoes"
+        formControlName="observacoes">
     </textarea>
 
     <section class="botoes">
