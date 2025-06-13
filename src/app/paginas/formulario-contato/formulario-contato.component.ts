@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContainerComponent } from '../../components/container/container.component';
 import { SeparadorComponent } from '../../components/separador/separador.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ContatoService } from '../../services/contato.service';
 
 @Component({
   selector: 'app-formulario-contato',
@@ -16,11 +17,16 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   templateUrl: './formulario-contato.component.html',
   styleUrl: './formulario-contato.component.css'
 })
-export class FormularioContatoComponent {
+export class FormularioContatoComponent implements OnInit{
 
   contatoForm!: FormGroup;
+  constructor(private contatoService: ContatoService){}
 
-  constructor(){
+  ngOnInit(): void {
+    this.inicializarFormulario();
+  }
+
+  inicializarFormulario() {
     this.contatoForm = new FormGroup({
       nome: new FormControl('', Validators.required),
       telefone: new FormControl('',Validators.required),
@@ -32,11 +38,8 @@ export class FormularioContatoComponent {
   }
 
   salvarContato(){
-    if(!this.contatoForm.valid){
-      console.log(this.contatoForm.value);
-      console.log(this.contatoForm.get('email')?.errors);
-    }
-    
+      const novoContato = this.contatoForm.value;
+      this.contatoService.salvarContato(novoContato);
   }
 
   cancelar(){
