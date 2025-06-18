@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 interface Contato {
   id: number;
@@ -11,31 +13,16 @@ interface Contato {
 })
 export class ContatoService {
 
-  private contatos: Contato[] = [];
+  private readonly API = 'http://localhost:3000/contatos'
 
-  constructor() {
-    const contatosLocalStorageString = localStorage.getItem('contatos');
-    const contatosLocalStorage = contatosLocalStorageString ? JSON.parse(contatosLocalStorageString) : null;
+  constructor(private http: HttpClient) {}
 
-    this.contatos = contatosLocalStorage || [
-      { id: 1, nome: 'Ana', telefone: '29 278869420' },
-      { id: 2, nome: 'Ágata', telefone: '38 128451235' },
-      { id: 3, nome: 'Bruno', telefone: '95 695521583' },
-      { id: 4, nome: 'Beatriz', telefone: '25 854986459' },
-      { id: 5, nome: 'Carlos', telefone: '94 543197849' },
-      { id: 7, nome: 'Daniel', telefone: '56 613692441' },
-    ];
-
-    localStorage.setItem('contatos', JSON.stringify(this.contatos));
-  }
-
-  obterContatos(): Contato[] {
-    return this.contatos;
+  obterContatos(): Observable<Contato[]> {
+    return this.http.get<Contato[]>(this.API)
   }
 
   salvarContato(contato: Contato) {
-    this.contatos.push(contato);
-    localStorage.setItem('contatos', JSON.stringify(this.contatos));
+
   }
 }
 
