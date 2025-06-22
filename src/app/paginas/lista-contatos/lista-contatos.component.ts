@@ -7,6 +7,7 @@ import { SeparadorComponent } from '../../components/separador/separador.compone
 import { FormularioContatoComponent } from '../formulario-contato/formulario-contato.component';
 import { RouterLink } from '@angular/router';
 import { ContatoService } from '../../services/contato.service';
+import { PerfilContatoComponent } from '../perfil-contato/perfil-contato.component';
 
 interface Contato {
   id: number;
@@ -24,7 +25,8 @@ interface Contato {
     ContatoComponent,
     FormsModule,
     FormularioContatoComponent,
-    RouterLink
+    RouterLink,
+    PerfilContatoComponent
   ],
   templateUrl: './lista-contatos.component.html',
   styleUrl: './lista-contatos.component.css'
