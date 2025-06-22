@@ -25,8 +25,7 @@ interface Contato {
     ContatoComponent,
     FormsModule,
     FormularioContatoComponent,
-    RouterLink,
-    PerfilContatoComponent
+    RouterLink
   ],
   templateUrl: './lista-contatos.component.html',
   styleUrl: './lista-contatos.component.css'
