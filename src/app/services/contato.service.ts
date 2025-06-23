@@ -6,6 +6,9 @@ interface Contato {
   id: number;
   nome: string;
   telefone: string;
+  email: string;
+  aniversario: string;
+  redes: string;
 }
 
 @Injectable({
@@ -21,8 +24,13 @@ export class ContatoService {
     return this.http.get<Contato[]>(this.API)
   }
 
-  salvarContato(contato: Contato) {
+  salvarContato(contato: Contato): Observable<Contato> {
     return this.http.post<Contato>(this.API, contato)
   }
+
+  buscarPorId(id: number): Observable<Contato> {
+    return this.http.get<Contato>(`${this.API}/${id}`);
+  }
+
 }
 
