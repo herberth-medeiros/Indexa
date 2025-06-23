@@ -32,5 +32,8 @@ export class ContatoService {
     return this.http.get<Contato>(`${this.API}/${id}`);
   }
 
+    excluirContato(id: number): Observable<Contato> {
+    return this.http.delete<Contato>(`${this.API}/${id}`);
+  }
 }
 
