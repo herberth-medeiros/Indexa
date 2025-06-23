@@ -35,5 +35,17 @@ export class ContatoService {
     excluirContato(id: number): Observable<Contato> {
     return this.http.delete<Contato>(`${this.API}/${id}`);
   }
+    editarContato(contato: Contato): Observable<Contato> {
+    const url = `${this.API}/${contato.id}`
+    return this.http.put<Contato>(url, contato);
+  }
+    editarOuSalvarContato(contato: Contato): Observable<Contato> {
+      if(contato.id){
+        return this.editarContato(contato)
+      }else {
+        return this.salvarContato(contato)
+      }
+    }
+
 }
 

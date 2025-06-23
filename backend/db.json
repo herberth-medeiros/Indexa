@@ -12,7 +12,7 @@
     {
       "nome": "João",
       "telefone": "88 88888888",
-      "email": "maria@email.com",
+      "email": "Joao@email.com",
       "aniversario": "06/01/1990",
       "redes": "",
       "observacoes": "",
@@ -26,15 +26,6 @@
       "redes": "",
       "observacoes": "",
       "id": 3
-    },
-    {
-      "nome": "Herberth Freitas de Medeiros",
-      "telefone": "83987022134",
-      "email": "herberthfreitas26@gmail.com",
-      "aniversario": "1998-06-08",
-      "redes": "",
-      "observacoes": "",
-      "id": 4
     }
   ]
 }
