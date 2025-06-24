@@ -10,9 +10,14 @@ import { ContatoService } from '../../services/contato.service';
 import { PerfilContatoComponent } from '../perfil-contato/perfil-contato.component';
 
 interface Contato {
-  id: number;
-  nome: string;
-  telefone: string;
+    id?: number
+    nome: string
+    avatar: string | ArrayBuffer
+    telefone: string
+    email: string
+    aniversario?:string
+    redes?: string
+    observacoes?: string
 }
 
 @Component({
